@@ -2,11 +2,19 @@ import csv
 import urllib
 
 def convertCSVToDictionary(data):
+
     dictionary = {}
     for row in data:
         key, value = row
         dictionary[key] = value
+
     return dictionary
+
+def generateMovieTitle(birthMonth, birthDay, birthYearLastDigit):
+
+    title = str(monthSelection[month] + dayOfBirthSelection[day] + lastdigits[lastdigit])
+    
+    return title
 
 months = csv.reader(open('months.csv', 'r'))
 days = csv.reader(open('dayofbirth.csv', 'r'))
@@ -19,11 +27,5 @@ month = raw_input("Please enter month of birth: ")
 day = raw_input("Please enter day of birth: ")
 lastdigit = raw_input("Please enter the last digit of birth year: ")
 
-
-print(monthSelection[month] + dayOfBirthSelection[day] + lastdigits[lastdigit])
-
-'''print(monthSelection)
-print(dayOfBirthSelection)
-print(lastdigits)'''
-
+print(generateMovieTitle(month, day, lastdigit))
 
